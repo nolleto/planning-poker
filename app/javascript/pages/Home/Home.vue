@@ -7,13 +7,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'Home',
+export default {
+  name: 'Home',
 
-    methods: {
-      onClick() {
-        alert('something')
-      }
+  methods: {
+    onClick () {
+      alert('something')
     }
-  };
+  }
+}
 </script>

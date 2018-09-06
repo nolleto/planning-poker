@@ -17,5 +17,13 @@ addons:
   postgresql: 9.6
 
 install:
+  - nvm install v8.11.4
   - bundle install
   - yarn install
+
+before_script:
+  - nvm use v8.11.4
+
+script:
+  - bundle exec rubocop
+  - yarn run lint
