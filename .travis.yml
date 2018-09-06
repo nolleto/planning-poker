@@ -19,3 +19,4 @@ addons:
 install:
   - bundle install
   - yarn install
+  - bundle exec rubocop
