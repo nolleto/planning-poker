@@ -1,6 +1,9 @@
 {
   "name": "planning-poker",
   "private": true,
+  "scripts": {
+    "lint": "eslint --ext js --ext vue ./"
+  },
   "dependencies": {
     "@rails/webpacker": "3.5",
     "vue": "^2.5.17",
@@ -8,6 +11,13 @@
     "vue-template-compiler": "^2.5.17"
   },
   "devDependencies": {
+    "eslint": "^5.5.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.0.0-beta.3",
     "webpack-dev-server": "2.11.2"
   }
 }

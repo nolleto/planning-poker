@@ -1,0 +1,10 @@
+**/*{.,-}min.js
+**/*.spec.js
+vendor/
+public/
+node_modules/
+coverage/
+coverage-js/
+config/
+app/assets/
+bin/

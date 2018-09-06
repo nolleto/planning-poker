@@ -20,3 +20,4 @@ install:
   - bundle install
   - yarn install
   - bundle exec rubocop
+  - yarn run lint
