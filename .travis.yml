@@ -22,6 +22,8 @@ install:
   - yarn install
 
 before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database planning_poker;' -U postgres
   - nvm use v8.11.4
 
 script:
