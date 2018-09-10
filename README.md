@@ -1,58 +1,24 @@
-# Planning Poker
+# README
 
-[![javascript style guide][standard-image]][standard-url]
-[![Build Status][travis-image]][travis-url]
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
-[standard-url]: https://standardjs.com
-[travis-image]: https://travis-ci.org/nolleto/planning-poker.svg?branch=master
-[travis-url]: https://travis-ci.org/nolleto/planning-poker
+Things you may want to cover:
 
+* Ruby version
 
-## Description
+* System dependencies
 
-A planning poker is a project in working in progress made in Ruby and VueJS. The idea is to create one place where you and your team can access and measure the task easily.
+* Configuration
 
-## Main techologies:
-* Rails
-* VueJS
-* PostgreSQL
-* Webpack
+* Database creation
 
-## Setup:
-* Install [Redis](https://redis.io/)
-* Follow these steps:
+* Database initialization
 
-```
-git clone https://github.com/nolleto/planning-poker.git
-bundle install
-yarn
-```
-### Node
-The project uses [NVM](https://github.com/creationix/nvm) to ensure the use of the right NodeJS version.
-```
-nvm install
-```
+* How to run the test suite
 
-## Run:
-```
-rails s
-```
-Check it out: http://localhost:3000/
+* Services (job queues, cache servers, search engines, etc.)
 
-## Linters
-```
-yarn lint
-rubocop
-```
+* Deployment instructions
 
-## Tests:
-```
-yarn test
-rspec
-```
-
-## Deploy:
-```
-git push heroku master
-```
+* ...
