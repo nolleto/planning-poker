@@ -1,9 +1,14 @@
 import Vue from 'vue/dist/vue.esm'
-import App from '../pages/Home'
+import VueRouter from 'vue-router'
+import router from '../routers'
+import NavHeader from '../components/NavHeader'
+
+Vue.use(VueRouter)
 
 document.addEventListener('DOMContentLoaded', () => {
   new Vue({ // eslint-disable-line no-new
     el: '#app',
-    render: h => h(App)
+    router,
+    components: { NavHeader }
   })
 })
