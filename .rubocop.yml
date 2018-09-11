@@ -1,0 +1,31 @@
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - spec/**/*
+    - node_modules/**/*
+    - client/**/*
+
+Metrics/LineLength:
+  Max: 100
+  Include:
+    - 'app/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
