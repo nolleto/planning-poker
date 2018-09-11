@@ -30,4 +30,5 @@ script:
   - bundle exec rubocop
   - bundle exec rspec
   - yarn --cwd client lint
-  - yarn --cwd client test:unit
+  - yarn --cwd client build
+  - yarn --cwd client unit
