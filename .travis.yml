@@ -29,6 +29,6 @@ before_script:
 script:
   - bundle exec rubocop
   - bundle exec rspec
-  - yarn --cwd client lint
-  - yarn --cwd client build
-  - yarn --cwd client unit
+  - cd client && yarn lint && cd ..
+  - cd client && yarn build && cd ..
+  - cd client && yarn unit && cd ..
