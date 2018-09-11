@@ -8,6 +8,7 @@ AllCops:
     - db/**/*
     - spec/**/*
     - node_modules/**/*
+    - client/**/*
 
 Metrics/LineLength:
   Max: 100
@@ -24,4 +25,7 @@ Style/EmptyMethod:
   Enabled: false
 
 Style/ClassAndModuleChildren:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
   Enabled: false

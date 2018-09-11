@@ -20,13 +20,12 @@ A planning poker is a project in working in progress made in Ruby and VueJS. The
 * Webpack
 
 ## Setup:
-* Install [Redis](https://redis.io/)
 * Follow these steps:
 
 ```
 git clone https://github.com/nolleto/planning-poker.git
 bundle install
-yarn
+yarn --cwd client install
 ```
 ### Node
 The project uses [NVM](https://github.com/creationix/nvm) to ensure the use of the right NodeJS version.
@@ -36,19 +35,19 @@ nvm install
 
 ## Run:
 ```
-rails s
+foreman start -f Procfile.dev
 ```
 Check it out: http://localhost:3000/
 
 ## Linters
 ```
-yarn lint
+yarn --cwd client lint
 rubocop
 ```
 
 ## Tests:
 ```
-yarn test
+yarn --cwd client unit
 rspec
 ```
 
