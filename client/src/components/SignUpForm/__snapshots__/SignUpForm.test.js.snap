@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm component Snapshots When is loading matches 1`] = `
+<form>
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Username
+    </label>
+     
+    <input
+      class="input"
+      name="username"
+      type="text"
+    />
+     
+    <span
+      class="error"
+    >
+      
+    </span>
+  </div>
+   
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Email
+    </label>
+     
+    <input
+      class="input"
+      name="email"
+      type="email"
+    />
+     
+    <span
+      class="error"
+    >
+      
+    </span>
+  </div>
+   
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Password
+    </label>
+     
+    <input
+      class="input"
+      name="password"
+      type="password"
+    />
+     
+    <span
+      class="error"
+    >
+      
+    </span>
+  </div>
+   
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Confirm Password
+    </label>
+     
+    <input
+      class="input"
+      name="passwordConfirmation"
+      type="password"
+    />
+     
+    <span
+      class="error"
+    >
+      
+    </span>
+  </div>
+   
+  <div
+    class="field"
+  >
+    <button
+      class="button"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+   
+  <p>
+    Loading...
+  </p>
+</form>
+`;
+
+exports[`SignUpForm component Snapshots matches 1`] = `
+<form>
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Username
+    </label>
+     
+    <input
+      class="input"
+      name="username"
+      type="text"
+    />
+     
+    <span
+      class="error"
+    >
+      
+    </span>
+  </div>
+   
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Email
+    </label>
+     
+    <input
+      class="input"
+      name="email"
+      type="email"
+    />
+     
+    <span
+      class="error"
+    >
+      
+    </span>
+  </div>
+   
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Password
+    </label>
+     
+    <input
+      class="input"
+      name="password"
+      type="password"
+    />
+     
+    <span
+      class="error"
+    >
+      
+    </span>
+  </div>
+   
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Confirm Password
+    </label>
+     
+    <input
+      class="input"
+      name="passwordConfirmation"
+      type="password"
+    />
+     
+    <span
+      class="error"
+    >
+      
+    </span>
+  </div>
+   
+  <div
+    class="field"
+  >
+    <button
+      class="button"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+   
+  <!---->
+</form>
+`;

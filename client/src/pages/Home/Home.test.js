@@ -1,3 +1,4 @@
+import * as testApi from '../../api/tests'
 import Home from './index'
 import { shallowMount } from '@vue/test-utils'
 
@@ -24,16 +25,16 @@ describe('Home component', () => {
     })
 
     describe('When clicked in "Click here for something" button', () => {
-      let onClick
+      let testApi
 
       beforeEach(() => {
-        onClick = jest.fn()
-        wrapper.setMethods({ onClick })
+        testApi = jest.fn()
+        wrapper.setMethods({ testApi })
         wrapper.find('button').trigger('click')
       })
 
-      it('calls #onClick', () => {
-        expect(onClick).toHaveBeenCalled()
+      it('calls #testApi', () => {
+        expect(testApi).toHaveBeenCalled()
       })
     })
   })
@@ -43,14 +44,15 @@ describe('Home component', () => {
       wrapper = shallowComponent()
     })
 
-    describe('#onClick', () => {
+    describe('#testApi', () => {
       beforeEach(() => {
-        global.window.alert = jest.fn()
-        wrapper.vm.onClick()
+        window.alert = jest.fn()
+        testApi.test = jest.fn(async () => {})
+        wrapper.vm.testApi()
       })
 
-      it('calls window.alert() with "something"', () => {
-        expect(window.alert).toHaveBeenCalledWith('something')
+      it('calls #test method from test API', () => {
+        expect(testApi.test).toHaveBeenCalled()
       })
     })
   })

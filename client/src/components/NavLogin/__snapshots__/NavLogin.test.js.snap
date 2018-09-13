@@ -1,7 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavLogin component Snapshots matches 1`] = `
+exports[`NavLogin component Snapshots When user is not signed matches 1`] = `
 <div>
-  NavLogin
+  <div>
+    <a>
+      Sign In
+    </a>
+     
+    <a>
+      Sign Up
+    </a>
+  </div>
+</div>
+`;
+
+exports[`NavLogin component Snapshots When user is signed matches 1`] = `
+<div>
+  <div>
+    <span>
+      
+      Hello
+      
+      <b>
+        Lucas Nascimento
+      </b>
+      !
+    
+    </span>
+     
+    <a>
+      Sign out
+    </a>
+  </div>
 </div>
 `;

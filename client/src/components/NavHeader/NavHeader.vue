@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import NavLogin from '../NavLogin'
+import NavLogin from '../../containers/NavLogin'
 
 export default {
   name: 'NavHeader',

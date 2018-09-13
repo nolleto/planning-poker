@@ -4,20 +4,20 @@
 
     <button
       :disabled="!ui.btnEnable"
-      @click="onClick"
+      @click="testApi"
     >
-      Click here for something
+      Click here for test API
     </button>
   </div>
 </template>
 
 <script>
-import { get, post, auth } from '../../services/http'
+import { test } from '../../api/tests'
 
 export default {
   name: 'Home',
 
-  data() {
+  data () {
     return {
       ui: {
         btnEnable: true
@@ -26,17 +26,12 @@ export default {
   },
 
   methods: {
-    onClick () {
+    testApi () {
       this.ui.btnEnable = false
-      get('/api/v1/test')
+      test()
         .then(({ data }) => alert(data.status))
-        .catch((error) => alert(error))
-        .finally(() => this.ui.btnEnable = true)
-      // post('/api/auth/users', {
-      //   email: 'admin@admin.com',
-      //   password: 123456
-      // })
-      // auth()
+        .catch(error => alert(error))
+        .finally(() => (this.ui.btnEnable = true))
     }
   }
 }

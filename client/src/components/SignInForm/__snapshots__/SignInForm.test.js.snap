@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInForm component Snapshots When is loading matches 1`] = `
+<form>
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Username or Email
+    </label>
+     
+    <input
+      class="input"
+      name="userOrEmail"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Password
+    </label>
+     
+    <input
+      class="input"
+      name="password"
+      type="password"
+    />
+  </div>
+   
+  <div
+    class="field"
+  >
+    <button
+      class="button"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+   
+  <p>
+    Loading...
+  </p>
+   
+  <!---->
+</form>
+`;
+
+exports[`SignInForm component Snapshots When is there is a error matches 1`] = `
+<form>
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Username or Email
+    </label>
+     
+    <input
+      class="input"
+      name="userOrEmail"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Password
+    </label>
+     
+    <input
+      class="input"
+      name="password"
+      type="password"
+    />
+  </div>
+   
+  <div
+    class="field"
+  >
+    <button
+      class="button"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+   
+  <!---->
+   
+  <p>
+    Login invalid!
+  </p>
+</form>
+`;
+
+exports[`SignInForm component Snapshots matches 1`] = `
+<form>
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Username or Email
+    </label>
+     
+    <input
+      class="input"
+      name="userOrEmail"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="field"
+  >
+    <label
+      class="label"
+    >
+      Password
+    </label>
+     
+    <input
+      class="input"
+      name="password"
+      type="password"
+    />
+  </div>
+   
+  <div
+    class="field"
+  >
+    <button
+      class="button"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+   
+  <!---->
+   
+  <!---->
+</form>
+`;

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import NavHeader from './components/NavHeader'
+import NavHeader from './containers/NavHeader'
 
 export default {
   components: {
@@ -18,6 +18,10 @@ export default {
 <style>
 body {
   margin: 0;
+}
+
+a {
+  cursor: pointer;
 }
 </style>
 
