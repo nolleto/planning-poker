@@ -2,6 +2,7 @@ class ApiController < ActionController::API
   attr_reader :current_user
 
   protected
+
   def authenticate_request!
     unless user_id_in_token?
       render json: { errors: ['Not Authenticated'] }, status: :unauthorized
@@ -13,10 +14,11 @@ class ApiController < ActionController::API
   end
 
   private
+
   def http_token
-      @http_token ||= if request.headers['Authorization'].present?
-        request.headers['Authorization'].split(' ').last
-      end
+    @http_token ||= if request.headers['Authorization'].present?
+                      request.headers['Authorization'].split(' ').last
+                    end
   end
 
   def auth_token

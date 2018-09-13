@@ -6,7 +6,12 @@ Rails.application.routes.draw do
       resources :test
 
       namespace :auth do
-        resources :users
+        resources :users do
+
+          collection do
+            post 'sign_up', to: 'users#sign_up'
+          end
+        end
       end
     end
   end

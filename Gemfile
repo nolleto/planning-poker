@@ -6,6 +6,7 @@ ruby '2.5.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'jwt'
+gem 'olive_branch'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
@@ -13,11 +14,12 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry'
+  gem 'pry-remote'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop'
-  gem 'pry'
-  gem 'pry-remote'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
