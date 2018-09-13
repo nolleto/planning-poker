@@ -1,18 +1,25 @@
 import axios from 'axios'
 import JWT from 'jwt-client'
 
-export const post = (url, data) => {
-  return axios.post(url, data)
+const defaultHeaders = () => ({
+  'X-Key-Inflection': 'camel',
+  authorization: JWT.get()
+})
+
+const defaultConfig = () => ({
+  headers: defaultHeaders()
+})
+
+axios.interceptors.request.use(config => {
+  return { ...config, ...defaultConfig() }
+}, error => {
+  return Promise.reject(error)
+})
+
+export const get = (url, config) => {
+  return axios.get(url, config)
 }
 
-export const get = (url) => {
-  return axios.get(url)
-}
-
-export const auth = () => {
-  console.log(JWT.get())
-  return axios.post('/api/auth/users', {
-    email: 'admin@admin.com',
-    password: 123456
-  })
+export const post = (url, data, config) => {
+  return axios.post(url, data, config)
 }
