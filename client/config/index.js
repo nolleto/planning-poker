@@ -55,6 +55,11 @@ module.exports = {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 
+    // Alias
+    alias: {
+      '@': path.resolve(__dirname, '../src')
+    },
+
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',

@@ -1,21 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
-import state from './state'
-import mutations from './mutations'
-import actions from './actions'
-import getters from './getters'
+import common from './modules/common'
+import modules from './modules'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state,
-  mutations,
-  actions,
-  getters,
+  modules,
+  ...common,
   plugins: [
     createPersistedState({
-      paths: ['user']
+      paths: ['auth.user']
     })
   ]
 })

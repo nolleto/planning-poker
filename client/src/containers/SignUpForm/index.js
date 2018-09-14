@@ -1,9 +1,9 @@
 import { connect } from 'vuex-connect'
-import SignUpForm from '../../components/SignUpForm'
+import SignUpForm from '@/components/SignUpForm'
 
 export default connect({
   gettersToProps: {
-    getErrorByName: 'getErrorByName'
+    getErrorByName: 'login/getErrorByName'
   },
 
   stateToProps: {
@@ -11,6 +11,6 @@ export default connect({
   },
 
   actionsToEvents: {
-    'sign-up': (dispatch, data) => dispatch('signUp', data)
+    'sign-up': (dispatch, data) => dispatch('login/signUp', data)
   }
 })('SignUpFormContainer', SignUpForm)
