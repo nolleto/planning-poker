@@ -24,7 +24,7 @@ describe('auth service', () => {
       })
 
       it('calls the right URL with a payload', () => {
-        expect(services.post).toHaveBeenCalledWith(
+        expect(services.post).toHaveBeenLastCalledWith(
           AUTH,
           { login: 'user', password: 'pass' }
         )
@@ -72,7 +72,7 @@ describe('auth service', () => {
       })
 
       it('calls the right URL with a payload', () => {
-        expect(services.post).toHaveBeenCalledWith(
+        expect(services.post).toHaveBeenLastCalledWith(
           `${AUTH}/sign_up`,
           { username: 'admin', password: '123456' }
         )
@@ -105,12 +105,33 @@ describe('auth service', () => {
   })
 
   describe('signOut', () => {
-    beforeAll(async () => {
-      await signOut()
+    describe('When is successfully', () => {
+      beforeAll(async () => {
+        services.post = jest.fn(async () => ({}))
+        await signOut()
+      })
+
+      it('calls the right URL', () => {
+        expect(services.post).toHaveBeenLastCalledWith(
+          `${AUTH}/sign_out`
+        )
+      })
+
+      it('forgets the token by JWT', () => {
+        expect(JWT.forget).toHaveBeenCalled()
+      })
     })
 
-    it('forgets the token by JWT', () => {
-      expect(JWT.forget).toHaveBeenCalled()
+    describe('When has a failure', () => {
+      beforeAll(() => {
+        services.post = jest.fn(async () => { throw new Error() })
+      })
+
+      it('throws a error', async () => {
+        await expect(signOut())
+          .rejects
+          .toThrow()
+      })
     })
   })
 })

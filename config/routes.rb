@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
           collection do
             post 'sign_up', to: 'users#sign_up'
+            post 'sign_out', to: 'users#sign_out_user'
           end
         end
       end

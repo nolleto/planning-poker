@@ -20,6 +20,9 @@ export const signUp = data => {
     .then(saveToken)
 }
 
-export const signOut = async () => {
-  JWT.forget()
+export const signOut = () => {
+  return post(`${AUTH}/sign_out`)
+    .then(() => {
+      JWT.forget()
+    })
 }
