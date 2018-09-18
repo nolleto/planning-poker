@@ -16,7 +16,7 @@ class Api::V1::Auth::UsersController < ApiController
     render json: payload(user)
   rescue ActiveRecord::RecordInvalid => e
     render json: { errors: e.record.errors }, status: :unprocessable_entity
-  rescue StandardError => e
+  rescue StandardError
     render json: { errors: ['Unknown error'] }, status: :unprocessable_entity
   end
 
