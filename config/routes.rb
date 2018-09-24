@@ -6,11 +6,11 @@ Rails.application.routes.draw do
       resources :test
 
       namespace :auth do
-        resources :users do
+        resources :users, only: [:create]
 
+        resources :sessions, only: [:create, :destroy] do
           collection do
-            post 'sign_up', to: 'users#sign_up'
-            post 'sign_out', to: 'users#sign_out_user'
+            delete '', to: 'sessions#destroy'
           end
         end
       end
