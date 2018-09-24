@@ -1,6 +1,6 @@
 import JWT from 'jwt-client'
-import { post } from '../services/http'
-import { AUTH } from '../constants/api'
+import http from '../services/http'
+import { SESSIONS } from '../constants/api'
 
 const saveToken = ({ data }) => {
   const { authToken } = data
@@ -12,16 +12,12 @@ const saveToken = ({ data }) => {
 }
 
 export const signIn = (login, password) => {
-  return post(AUTH, { login, password })
-    .then(saveToken)
-}
-export const signUp = data => {
-  return post(`${AUTH}/sign_up`, data)
+  return http.post(SESSIONS, { login, password })
     .then(saveToken)
 }
 
 export const signOut = () => {
-  return post(`${AUTH}/sign_out`)
+  return http.delete(SESSIONS)
     .then(() => {
       JWT.forget()
     })

@@ -1,8 +1,5 @@
 import nock from 'nock'
-import {
-  get,
-  post
-} from './http'
+import http from './http'
 
 describe('http service', () => {
   describe('get', () => {
@@ -13,7 +10,7 @@ describe('http service', () => {
         .get('/')
         .reply(200)
 
-      response = await get('/')
+      response = await http.get('/')
     })
 
     it('is a GET method', () => {
@@ -29,7 +26,7 @@ describe('http service', () => {
         .post('/')
         .reply(200)
 
-      response = await post('/')
+      response = await http.post('/')
     })
 
     it('is a POST method', () => {

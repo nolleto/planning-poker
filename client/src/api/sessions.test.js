@@ -1,13 +1,12 @@
-import { AUTH } from '../constants/api'
-import * as services from '../services/http'
+import { SESSIONS } from '../constants/api'
+import services from '../services/http'
 import {
   signIn,
-  signOut,
-  signUp
-} from './auth'
+  signOut
+} from './sessions'
 import JWT from 'jwt-client'
 
-describe('auth service', () => {
+describe('SESSIONS service', () => {
   describe('signIn', () => {
     const response = {
       data: {
@@ -25,7 +24,7 @@ describe('auth service', () => {
 
       it('calls the right URL with a payload', () => {
         expect(services.post).toHaveBeenLastCalledWith(
-          AUTH,
+          SESSIONS,
           { login: 'user', password: 'pass' }
         )
       })
@@ -56,65 +55,15 @@ describe('auth service', () => {
     })
   })
 
-  describe('signUp', () => {
-    const response = {
-      data: {
-        authToken: 'token-value'
-      }
-    }
-
-    describe('When is successfully', () => {
-      let data
-
-      beforeAll(async () => {
-        services.post = jest.fn(async () => response)
-        data = await signUp({ username: 'admin', password: '123456' })
-      })
-
-      it('calls the right URL with a payload', () => {
-        expect(services.post).toHaveBeenLastCalledWith(
-          `${AUTH}/sign_up`,
-          { username: 'admin', password: '123456' }
-        )
-      })
-
-      it('returns data from response', () => {
-        expect(data).toEqual(response.data)
-      })
-
-      it('reads the token by JWT', () => {
-        expect(JWT.read).toHaveBeenCalledWith('token-value')
-      })
-
-      it('keeps the token by JWT', () => {
-        expect(JWT.keep).toHaveBeenCalledWith({ token: 'token-value' })
-      })
-    })
-
-    describe('When has a failure', () => {
-      beforeAll(() => {
-        services.post = jest.fn(async () => { throw new Error() })
-      })
-
-      it('throws a error', async () => {
-        await expect(signUp('user', 'pass'))
-          .rejects
-          .toThrow()
-      })
-    })
-  })
-
   describe('signOut', () => {
     describe('When is successfully', () => {
       beforeAll(async () => {
-        services.post = jest.fn(async () => ({}))
+        services.delete = jest.fn(async () => ({}))
         await signOut()
       })
 
       it('calls the right URL', () => {
-        expect(services.post).toHaveBeenLastCalledWith(
-          `${AUTH}/sign_out`
-        )
+        expect(services.delete).toHaveBeenLastCalledWith(SESSIONS)
       })
 
       it('forgets the token by JWT', () => {
@@ -124,7 +73,7 @@ describe('auth service', () => {
 
     describe('When has a failure', () => {
       beforeAll(() => {
-        services.post = jest.fn(async () => { throw new Error() })
+        services.delete = jest.fn(async () => { throw new Error() })
       })
 
       it('throws a error', async () => {

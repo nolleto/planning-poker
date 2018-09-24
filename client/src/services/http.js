@@ -16,10 +16,20 @@ axios.interceptors.request.use(config => {
   return Promise.reject(error)
 })
 
-export const get = (url, config) => {
+const get = (url, config) => {
   return axios.get(url, config)
 }
 
-export const post = (url, data, config) => {
+const post = (url, data, config) => {
   return axios.post(url, data, config)
+}
+
+const del = (url, config) => {
+  return axios.delete(url, config)
+}
+
+export default {
+  get,
+  post,
+  delete: del
 }

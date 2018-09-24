@@ -1,4 +1,4 @@
 import { TEST } from '../constants/api'
-import { get } from '../services/http'
+import http from '../services/http'
 
-export const test = () => get(TEST)
+export const test = () => http.get(TEST)

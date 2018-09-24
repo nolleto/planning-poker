@@ -1,4 +1,5 @@
-import * as authServices from '../api/auth'
+import * as usersServices from '../api/users'
+import * as sessionsServices from '../api/sessions'
 import router from '../routers'
 import actions from './actions'
 import {
@@ -25,7 +26,7 @@ describe('actions store', () => {
       beforeAll(() => {
         jest.useFakeTimers()
         router.push = jest.fn()
-        authServices.signIn = jest.fn(async () => ({ user: {} }))
+        sessionsServices.signIn = jest.fn(async () => ({ user: {} }))
         actions.signIn({ commit, state }, payload)
       })
 
@@ -34,7 +35,7 @@ describe('actions store', () => {
       })
 
       it('calls #signIn methods from auth service', () => {
-        expect(authServices.signIn).toHaveBeenCalledWith(
+        expect(sessionsServices.signIn).toHaveBeenCalledWith(
           'admin', 123456
         )
       })
@@ -64,7 +65,7 @@ describe('actions store', () => {
       beforeAll(() => {
         jest.useFakeTimers()
         router.push = jest.fn()
-        authServices.signIn = jest.fn(async () => {
+        sessionsServices.signIn = jest.fn(async () => {
           const error = new Error()
           error.response = { data: {} }
           throw error
@@ -77,7 +78,7 @@ describe('actions store', () => {
       })
 
       it('calls #signIn methods from auth service', () => {
-        expect(authServices.signIn).toHaveBeenCalledWith(
+        expect(sessionsServices.signIn).toHaveBeenCalledWith(
           'admin', 123456
         )
       })
@@ -112,7 +113,7 @@ describe('actions store', () => {
       beforeAll(() => {
         jest.useFakeTimers()
         router.push = jest.fn()
-        authServices.signUp = jest.fn(async () => ({ user: {} }))
+        usersServices.create = jest.fn(async () => ({ user: {} }))
         actions.signUp({ commit, state }, payload)
       })
 
@@ -121,7 +122,7 @@ describe('actions store', () => {
       })
 
       it('calls #signUp methods from auth service', () => {
-        expect(authServices.signUp).toHaveBeenCalledWith(payload)
+        expect(usersServices.create).toHaveBeenCalledWith(payload)
       })
 
       describe('and request finished', () => {
@@ -149,7 +150,7 @@ describe('actions store', () => {
       beforeAll(() => {
         jest.useFakeTimers()
         router.push = jest.fn()
-        authServices.signUp = jest.fn(async () => {
+        usersServices.create = jest.fn(async () => {
           const error = new Error()
           error.response = { data: {} }
           throw error
@@ -162,7 +163,7 @@ describe('actions store', () => {
       })
 
       it('calls #signUp methods from auth service', () => {
-        expect(authServices.signUp).toHaveBeenCalledWith(payload)
+        expect(usersServices.create).toHaveBeenCalledWith(payload)
       })
 
       describe('and request finished', () => {
@@ -190,7 +191,7 @@ describe('actions store', () => {
       beforeAll(() => {
         jest.useFakeTimers()
         router.push = jest.fn()
-        authServices.signOut = jest.fn(async () => ({ user: {} }))
+        sessionsServices.signOut = jest.fn(async () => ({ user: {} }))
         actions.signOut({ commit, state })
       })
 
@@ -199,7 +200,7 @@ describe('actions store', () => {
       })
 
       it('calls #signOut methods from auth service', () => {
-        expect(authServices.signOut).toHaveBeenCalled()
+        expect(sessionsServices.signOut).toHaveBeenCalled()
       })
 
       describe('and request finished', () => {
@@ -227,7 +228,7 @@ describe('actions store', () => {
       beforeAll(() => {
         jest.useFakeTimers()
         router.push = jest.fn()
-        authServices.signOut = jest.fn(async () => {
+        sessionsServices.signOut = jest.fn(async () => {
           const error = new Error()
           error.response = { data: {} }
           throw error
@@ -240,7 +241,7 @@ describe('actions store', () => {
       })
 
       it('calls #signOut methods from auth service', () => {
-        expect(authServices.signOut).toHaveBeenCalled()
+        expect(sessionsServices.signOut).toHaveBeenCalled()
       })
 
       describe('and request finished', () => {

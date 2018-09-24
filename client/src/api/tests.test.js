@@ -1,5 +1,5 @@
 import { TEST } from '../constants/api'
-import * as services from '../services/http'
+import services from '../services/http'
 import { test } from './tests'
 
 describe('auth service', () => {

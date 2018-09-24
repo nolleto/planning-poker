@@ -8,7 +8,8 @@ import {
   SIGN_OUT_FAILURE
 } from './mutations-types'
 import router from '../routers'
-import { signIn, signOut, signUp } from '../api/auth'
+import { create } from '../api/users'
+import { signIn, signOut } from '../api/sessions'
 
 export default {
   signIn ({ commit }, { userOrEmail, password }) {
@@ -29,7 +30,7 @@ export default {
   signUp ({ commit }, data) {
     commit(TOGGLE_IS_LOADING)
 
-    signUp(data)
+    create(data)
       .then(
         ({ user }) => {
           commit(SIGN_UP_SUCCESS, user)
