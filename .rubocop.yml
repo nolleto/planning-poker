@@ -29,3 +29,6 @@ Style/ClassAndModuleChildren:
 
 Layout/EmptyLinesAroundBlockBody:
   Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false

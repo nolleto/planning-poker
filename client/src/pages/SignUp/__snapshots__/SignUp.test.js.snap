@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignUp component Snapshots matches 1`] = `
-<div>
-  SignUp
-</div>
-`;
+exports[`SignUp component Snapshots matches 1`] = `<signupform-stub />`;

@@ -1,10 +1,14 @@
 <template>
-  <div>SignIn</div>
+  <SignInForm />
 </template>
 
 <script>
+import SignInForm from '../../containers/SignInForm'
+
 export default {
-  name: 'SignIn'
+  name: 'SignIn',
+
+  components: { SignInForm }
 }
 </script>
 

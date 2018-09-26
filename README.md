@@ -14,10 +14,13 @@
 A planning poker is a project in working in progress made in Ruby and VueJS. The idea is to create one place where you and your team can access and measure the task easily.
 
 ## Main techologies:
-* Rails
+* Rails (API)
 * VueJS
 * PostgreSQL
 * Webpack
+* Vuex
+* Rspec
+* Jest
 
 ## Setup:
 * Follow these steps:
@@ -50,6 +53,8 @@ rubocop
 yarn --cwd client unit
 rspec
 ```
+
+To check the coverage from rails tests open after ran: `coverage/index.html`.
 
 ## Deploy:
 ```
