@@ -3,11 +3,22 @@
   "license": "MIT",
   "engines": {
     "node": "8.11.4",
-    "yarn": "1.6.0"
+    "yarn": ">= 1.6.0"
   },
   "scripts": {
     "build": "yarn --cwd client install && yarn --cwd client build",
     "deploy": "cp -a client/dist/. public/",
-    "heroku-postbuild": "yarn build && yarn deploy"
+    "heroku-postbuild": "yarn build && yarn deploy",
+    "lints": "rubocop && yarn --cwd client lint",
+    "tests": "rspec && yarn --cwd client unit"
+  },
+  "devDependencies": {
+    "husky": "^1.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lints",
+      "pre-push": "yarn tests"
+    }
   }
 }
