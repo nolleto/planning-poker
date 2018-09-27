@@ -33,4 +33,20 @@ describe('http service', () => {
       expect(response.config.method).toBe('post')
     })
   })
+
+  describe('delete', () => {
+    let response
+
+    beforeAll(async () => {
+      nock('http://localhost')
+        .delete('/')
+        .reply(200)
+
+      response = await http.delete('/')
+    })
+
+    it('is a DELETE method', () => {
+      expect(response.config.method).toBe('delete')
+    })
+  })
 })

@@ -1,5 +1,7 @@
 <template>
-  <SignUpForm />
+  <div :class="$style.wrapper">
+    <sign-up-form :class="$style.form" />
+  </div>
 </template>
 
 <script>
@@ -12,6 +14,16 @@ export default {
 }
 </script>
 
-<style>
+<style module>
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .form {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+  }
 </style>

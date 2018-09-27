@@ -6,7 +6,7 @@ import SignUp from '../pages/SignUp'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -27,3 +27,10 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  document.title = `Planning Poker - ${to.name}`
+  next()
+})
+
+export default router

@@ -1,5 +1,7 @@
 import NavLogin from './index'
 import { shallowMount } from '@vue/test-utils'
+import UserLogged from './UserLogged'
+import UserNotLogged from './UserNotLogged'
 
 const defaultProps = {
   isUserSignedIn: false
@@ -51,10 +53,10 @@ describe('NavLogin component', () => {
         wrapper.setProps({ isUserSignedIn: true })
       })
 
-      describe('When clicked in "Sign out" link', () => {
+      describe('When UserLogged emitted "sign-out"', () => {
         beforeEach(() => {
           jest.spyOn(wrapper.vm, '$emit')
-          wrapper.find('a').trigger('click')
+          wrapper.find(UserLogged).vm.$emit('sign-out')
         })
 
         it('emits "sign-out"', () => {
@@ -68,10 +70,10 @@ describe('NavLogin component', () => {
         wrapper.setProps({ isUserSignedIn: false })
       })
 
-      describe('When clicked in "Sign In" link', () => {
+      describe('When UserNotLogged emitted "sign-in"', () => {
         beforeEach(() => {
           jest.spyOn(wrapper.vm, '$emit')
-          wrapper.find('a').trigger('click')
+          wrapper.find(UserNotLogged).vm.$emit('sign-in')
         })
 
         it('emits "sign-in"', () => {
@@ -79,10 +81,10 @@ describe('NavLogin component', () => {
         })
       })
 
-      describe('When clicked in "Sign Up" link', () => {
+      describe('When UserNotLogged emitted "sign-up"', () => {
         beforeEach(() => {
           jest.spyOn(wrapper.vm, '$emit')
-          wrapper.findAll('a').at(1).trigger('click')
+          wrapper.find(UserNotLogged).vm.$emit('sign-up')
         })
 
         it('emits "sign-up"', () => {

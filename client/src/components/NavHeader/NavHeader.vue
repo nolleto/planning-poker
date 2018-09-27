@@ -1,14 +1,37 @@
 <template>
-  <nav class="wrapper flex-center">
+  <nav :class="[bootstrap.navbar, bootstrap.navbarExpandLg, bootstrap.navbarLight, bootstrap.bgLight]">
     <a
-      class="title"
+      :class="bootstrap.navbarBrand"
       @click="$emit('go-home')"
     >
       Planning Poker
     </a>
 
-    <div class="flex-center">
-      <div class="divider" />
+    <button
+      :class="bootstrap.navbarToggler"
+      :aria-expanded="ui.expanded"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-label="Toggle navigation"
+      @click="ui.expanded = !ui.expanded"
+    >
+      <span :class="bootstrap.navbarTogglerIcon"></span>
+    </button>
+
+    <div
+      :class="[
+        bootstrap.collapse,
+        bootstrap.navbarCollapse,
+        {
+          [bootstrap.show]: ui.expanded
+        }
+      ]"
+      id="navbarSupportedContent"
+    >
+      <ul :class="[bootstrap.navbarNav, bootstrap.mrAuto]">
+      </ul>
+
       <nav-login />
     </div>
   </nav>
@@ -16,36 +39,23 @@
 
 <script>
 import NavLogin from '../../containers/NavLogin'
+import styles from '@/styles'
 
 export default {
   name: 'NavHeader',
 
-  components: { NavLogin }
+  components: { NavLogin },
+
+  data () {
+    return {
+      ui: {
+        expanded: false
+      }
+    }
+  },
+
+  computed: {
+    bootstrap: () => styles.bootstrap
+  }
 }
 </script>
-
-<style scoped>
-  .wrapper {
-    padding: 10px 20px;
-    background-color: #f4f4f4;
-  }
-
-  .flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .divider {
-    height: 20px;
-    margin-right: 10px;
-    border-left: 1px solid #dddddd;
-  }
-
-  .title {
-    padding: 5px 0;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: 500;
-  }
-</style>

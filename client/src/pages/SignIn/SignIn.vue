@@ -1,9 +1,11 @@
 <template>
-  <SignInForm />
+  <div :class="$style.wrapper">
+    <sign-in-form :class="$style.form" />
+  </div>
 </template>
 
 <script>
-import SignInForm from '../../containers/SignInForm'
+import SignInForm from '@/containers/SignInForm'
 
 export default {
   name: 'SignIn',
@@ -12,6 +14,16 @@ export default {
 }
 </script>
 
-<style>
+<style module>
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .form {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+  }
 </style>

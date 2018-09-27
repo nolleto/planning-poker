@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput component Snapshots When has "invalid" state matches 1`] = `
+<div>
+  <input
+    class="formControl isInvalid"
+    id="username"
+    name="username"
+  />
+   
+  <forminputfeedback-stub
+    state="invalid"
+  >
+    
+    username invalid
+  
+  </forminputfeedback-stub>
+</div>
+`;
+
+exports[`FormInput component Snapshots When has "valid" state matches 1`] = `
+<div>
+  <input
+    class="formControl isValid"
+    id="username"
+    name="username"
+  />
+   
+  <forminputfeedback-stub
+    state="valid"
+  >
+    
+    username invalid
+  
+  </forminputfeedback-stub>
+</div>
+`;
+
+exports[`FormInput component Snapshots matches 1`] = `
+<div>
+  <input
+    class="formControl"
+    id="username"
+    name="username"
+  />
+   
+  <forminputfeedback-stub>
+    
+    
+  
+  </forminputfeedback-stub>
+</div>
+`;

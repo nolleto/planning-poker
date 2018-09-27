@@ -1,16 +1,54 @@
 import SignInForm from './index'
-import { shallowMount } from '@vue/test-utils'
+import VeeValidate from 'vee-validate'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 
 const defaultProps = {
   isLoading: false
 }
 
 const shallowComponent = (opts = { propsData: defaultProps }) => {
-  return shallowMount(SignInForm, opts)
+  const localVue = createLocalVue()
+
+  localVue.use(VeeValidate)
+
+  return shallowMount(SignInForm, {
+
+    ...opts,
+    localVue,
+    mixins: [{
+      methods: {
+        fieldIsValid: jest.fn(() => undefined),
+        fieldIsInvalid: jest.fn(() => undefined),
+        getFieldError: jest.fn(() => undefined),
+        getFieldState: jest.fn(() => undefined),
+        formHasErrors: jest.fn(() => false)
+      }
+    }]
+  })
 }
 
 describe('SignInForm component', () => {
   let wrapper
+
+  describe('Lifecycle', () => {
+    describe('#created', () => {
+      const emit = jest.fn()
+
+      beforeAll(() => {
+        wrapper = shallowComponent({
+          propsData: defaultProps,
+          mocks: {
+            $emit: emit
+          }
+        })
+        jest.spyOn(wrapper.vm, '$emit')
+      })
+
+      it('emits "clean-server-errors"', () => {
+        expect(emit).toHaveBeenCalledWith('clean-server-errors')
+      })
+    })
+  })
 
   describe('Snapshots', () => {
     beforeAll(() => {
@@ -23,7 +61,11 @@ describe('SignInForm component', () => {
 
     describe('When is loading', () => {
       beforeAll(() => {
-        wrapper.setProps({ isLoading: true })
+        wrapper = shallowComponent({
+          propsData: {
+            isLoading: true
+          }
+        })
       })
 
       it('matches', () => {
@@ -33,7 +75,12 @@ describe('SignInForm component', () => {
 
     describe('When is there is a error', () => {
       beforeAll(() => {
-        wrapper.setProps({ isLoading: false, error: 'Login invalid!' })
+        wrapper = shallowComponent({
+          propsData: {
+            ...defaultProps,
+            error: 'Invalid login'
+          }
+        })
       })
 
       it('matches', () => {
@@ -42,46 +89,57 @@ describe('SignInForm component', () => {
     })
   })
 
-  describe('Event Listeners', () => {
-    beforeAll(() => {
-      wrapper = shallowComponent()
-    })
-
-    describe('When form submit', () => {
-      beforeAll(() => {
-        jest.spyOn(wrapper.vm, 'processForm')
-        wrapper.find('form').trigger('submit')
-      })
-
-      it('calls #processForm method', () => {
-        expect(wrapper.vm.processForm).toHaveBeenCalled()
-      })
-    })
-  })
-
   describe('Methods', () => {
-    beforeAll(() => {
-      wrapper = shallowComponent()
-    })
-
     describe('#processForm', () => {
-      beforeAll(() => {
-        jest.spyOn(wrapper.vm, '$emit')
-        wrapper.vm.userOrEmail = 'user@example.com'
-        wrapper.setData({
-          form: {
-            userOrEmail: 'user@example.com',
-            password: 123456
-          }
+      describe('When form is valid', () => {
+        beforeAll(() => {
+          wrapper = shallowComponent()
+          jest.useFakeTimers()
+          jest.spyOn(wrapper.vm, '$emit')
+          wrapper.vm.$validator.validateAll = jest.fn(async () => true)
+          wrapper.vm.processForm()
         })
-        wrapper.vm.processForm()
+
+        it('calls $validator.validateAll', () => {
+          expect(wrapper.vm.$validator.validateAll).toHaveBeenCalled()
+        })
+
+        describe('and finished promise', () => {
+          beforeAll(() => {
+            jest.runAllTimers()
+          })
+
+          it('emits "sign-in" with payload', () => {
+            expect(wrapper.vm.$emit).toHaveBeenCalledWith(
+              'sign-in',
+              { userOrEmail: '', password: '' }
+            )
+          })
+        })
       })
 
-      it('emits "sign-in" with payload', () => {
-        expect(wrapper.vm.$emit).toHaveBeenCalledWith(
-          'sign-in',
-          { userOrEmail: 'user@example.com', password: 123456 }
-        )
+      describe('When form is invalid', () => {
+        beforeAll(() => {
+          wrapper = shallowComponent()
+          jest.useFakeTimers()
+          jest.spyOn(wrapper.vm, '$emit')
+          wrapper.vm.$validator.validateAll = jest.fn(async () => false)
+          wrapper.vm.processForm()
+        })
+
+        it('calls $validator.validateAll', () => {
+          expect(wrapper.vm.$validator.validateAll).toHaveBeenCalled()
+        })
+
+        describe('and finished promise', () => {
+          beforeAll(() => {
+            jest.runAllTimers()
+          })
+
+          it('does not emits "sign-in" with payload', () => {
+            expect(wrapper.vm.$emit).not.toHaveBeenCalled()
+          })
+        })
       })
     })
   })

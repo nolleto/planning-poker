@@ -1,22 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavHeader component Snapshots matches 1`] = `
+exports[`NavHeader component Snapshots When menu is expanded matches 1`] = `
 <nav
-  class="wrapper flex-center"
+  class="navbar navbarExpandLg navbarLight bgLight"
 >
   <a
-    class="title"
+    class="navbarBrand"
   >
     
     Planning Poker
   
   </a>
    
-  <div
-    class="flex-center"
+  <button
+    aria-controls="navbarSupportedContent"
+    aria-expanded="true"
+    aria-label="Toggle navigation"
+    class="navbarToggler"
+    data-target="#navbarSupportedContent"
+    data-toggle="collapse"
   >
-    <div
-      class="divider"
+    <span
+      class="navbarTogglerIcon"
+    />
+  </button>
+   
+  <div
+    class="collapse navbarCollapse show"
+    id="navbarSupportedContent"
+  >
+    <ul
+      class="navbarNav mrAuto"
+    />
+     
+    <navlogin-stub />
+  </div>
+</nav>
+`;
+
+exports[`NavHeader component Snapshots When menu is not expanded matches 1`] = `
+<nav
+  class="navbar navbarExpandLg navbarLight bgLight"
+>
+  <a
+    class="navbarBrand"
+  >
+    
+    Planning Poker
+  
+  </a>
+   
+  <button
+    aria-controls="navbarSupportedContent"
+    aria-label="Toggle navigation"
+    class="navbarToggler"
+    data-target="#navbarSupportedContent"
+    data-toggle="collapse"
+  >
+    <span
+      class="navbarTogglerIcon"
+    />
+  </button>
+   
+  <div
+    class="collapse navbarCollapse"
+    id="navbarSupportedContent"
+  >
+    <ul
+      class="navbarNav mrAuto"
     />
      
     <navlogin-stub />

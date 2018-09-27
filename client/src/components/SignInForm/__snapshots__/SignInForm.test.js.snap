@@ -2,52 +2,43 @@
 
 exports[`SignInForm component Snapshots When is loading matches 1`] = `
 <form>
-  <div
-    class="field"
+  <formgroup-stub
+    name="userOrEmail"
+    title="Username or Email"
   >
-    <label
-      class="label"
-    >
-      Username or Email
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="userOrEmail"
-      type="text"
+      value=""
     />
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <formgroup-stub
+    name="password"
+    title="Password"
   >
-    <label
-      class="label"
-    >
-      Password
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="password"
       type="password"
+      value=""
     />
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
-  >
-    <button
-      class="button"
-      type="submit"
+  <formgroup-stub>
+    <basebutton-stub
+      disabled="true"
+      variant="primary"
     >
-      Submit
-    </button>
-  </div>
+      
+      Sign in
+    
+    </basebutton-stub>
+  </formgroup-stub>
    
-  <p>
-    Loading...
-  </p>
+  <progressbar-stub />
    
   <!---->
 </form>
@@ -55,101 +46,87 @@ exports[`SignInForm component Snapshots When is loading matches 1`] = `
 
 exports[`SignInForm component Snapshots When is there is a error matches 1`] = `
 <form>
-  <div
-    class="field"
+  <formgroup-stub
+    name="userOrEmail"
+    title="Username or Email"
   >
-    <label
-      class="label"
-    >
-      Username or Email
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="userOrEmail"
-      type="text"
+      value=""
     />
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <formgroup-stub
+    name="password"
+    title="Password"
   >
-    <label
-      class="label"
-    >
-      Password
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="password"
       type="password"
+      value=""
     />
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
-  >
-    <button
-      class="button"
-      type="submit"
+  <formgroup-stub>
+    <basebutton-stub
+      variant="primary"
     >
-      Submit
-    </button>
-  </div>
+      
+      Sign in
+    
+    </basebutton-stub>
+  </formgroup-stub>
    
   <!---->
    
-  <p>
-    Login invalid!
-  </p>
+  <errorsummary-stub>
+    
+    Invalid login
+  
+  </errorsummary-stub>
 </form>
 `;
 
 exports[`SignInForm component Snapshots matches 1`] = `
 <form>
-  <div
-    class="field"
+  <formgroup-stub
+    name="userOrEmail"
+    title="Username or Email"
   >
-    <label
-      class="label"
-    >
-      Username or Email
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="userOrEmail"
-      type="text"
+      value=""
     />
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <formgroup-stub
+    name="password"
+    title="Password"
   >
-    <label
-      class="label"
-    >
-      Password
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="password"
       type="password"
+      value=""
     />
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
-  >
-    <button
-      class="button"
-      type="submit"
+  <formgroup-stub>
+    <basebutton-stub
+      variant="primary"
     >
-      Submit
-    </button>
-  </div>
+      
+      Sign in
+    
+    </basebutton-stub>
+  </formgroup-stub>
    
   <!---->
    

@@ -1,22 +1,23 @@
 <template>
   <div>
-    <div v-if="isUserSignedIn">
-      <span>
-        Hello
-        <b>{{ username }}</b>!
-      </span>
+    <user-logged
+      v-if="isUserSignedIn"
+      :username="username"
+      @sign-out="$emit('sign-out')"
+    />
 
-      <a @click="$emit('sign-out')">Sign out</a>
-    </div>
-
-    <div v-else>
-      <a @click="$emit('sign-in')">Sign In</a>
-      <a @click="$emit('sign-up')">Sign Up</a>
-    </div>
+    <user-not-logged
+      v-else
+      @sign-in="$emit('sign-in')"
+      @sign-up="$emit('sign-up')"
+    />
   </div>
 </template>
 
 <script>
+import UserLogged from './UserLogged'
+import UserNotLogged from './UserNotLogged'
+
 export default {
   name: 'NavLogin',
 
@@ -29,10 +30,11 @@ export default {
     username: {
       type: String
     }
+  },
+
+  components: {
+    UserLogged,
+    UserNotLogged
   }
 }
 </script>
-
-<style>
-
-</style>
