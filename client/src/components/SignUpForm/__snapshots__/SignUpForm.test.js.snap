@@ -2,211 +2,201 @@
 
 exports[`SignUpForm component Snapshots When is loading matches 1`] = `
 <form>
-  <div
-    class="field"
+  <formgroup-stub
+    name="username"
+    title="Username"
   >
-    <label
-      class="label"
-    >
-      Username
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="username"
-      type="text"
+      value=""
     />
-     
-    <span
-      class="error"
-    >
-      
-    </span>
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <formgroup-stub
+    name="email"
+    title="Email"
   >
-    <label
-      class="label"
-    >
-      Email
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="email"
       type="email"
+      value=""
     />
-     
-    <span
-      class="error"
-    >
-      
-    </span>
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <formgroup-stub
+    name="password"
+    title="Password"
   >
-    <label
-      class="label"
-    >
-      Password
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="password"
       type="password"
+      value=""
     />
-     
-    <span
-      class="error"
-    >
-      
-    </span>
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <formgroup-stub
+    name="passwordConfirmation"
+    title="Confirm Password"
   >
-    <label
-      class="label"
-    >
-      Confirm Password
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="passwordConfirmation"
       type="password"
+      value=""
     />
-     
-    <span
-      class="error"
+  </formgroup-stub>
+   
+  <formgroup-stub>
+    <basebutton-stub
+      disabled="true"
+      variant="primary"
     >
       
-    </span>
-  </div>
+      Sign in
+    
+    </basebutton-stub>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <progressbar-stub />
+</form>
+`;
+
+exports[`SignUpForm component Snapshots When is there is a error matches 1`] = `
+<form>
+  <formgroup-stub
+    name="username"
+    title="Username"
   >
-    <button
-      class="button"
-      type="submit"
-    >
-      Submit
-    </button>
-  </div>
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
+      name="username"
+      value=""
+    />
+  </formgroup-stub>
    
-  <p>
-    Loading...
-  </p>
+  <formgroup-stub
+    name="email"
+    title="Email"
+  >
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
+      name="email"
+      type="email"
+      value=""
+    />
+  </formgroup-stub>
+   
+  <formgroup-stub
+    name="password"
+    title="Password"
+  >
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
+      name="password"
+      type="password"
+      value=""
+    />
+  </formgroup-stub>
+   
+  <formgroup-stub
+    name="passwordConfirmation"
+    title="Confirm Password"
+  >
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
+      name="passwordConfirmation"
+      type="password"
+      value=""
+    />
+  </formgroup-stub>
+   
+  <formgroup-stub>
+    <basebutton-stub
+      variant="primary"
+    >
+      
+      Sign in
+    
+    </basebutton-stub>
+  </formgroup-stub>
+   
+  <!---->
 </form>
 `;
 
 exports[`SignUpForm component Snapshots matches 1`] = `
 <form>
-  <div
-    class="field"
+  <formgroup-stub
+    name="username"
+    title="Username"
   >
-    <label
-      class="label"
-    >
-      Username
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="username"
-      type="text"
+      value=""
     />
-     
-    <span
-      class="error"
-    >
-      
-    </span>
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <formgroup-stub
+    name="email"
+    title="Email"
   >
-    <label
-      class="label"
-    >
-      Email
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="email"
       type="email"
+      value=""
     />
-     
-    <span
-      class="error"
-    >
-      
-    </span>
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <formgroup-stub
+    name="password"
+    title="Password"
   >
-    <label
-      class="label"
-    >
-      Password
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="password"
       type="password"
+      value=""
     />
-     
-    <span
-      class="error"
-    >
-      
-    </span>
-  </div>
+  </formgroup-stub>
    
-  <div
-    class="field"
+  <formgroup-stub
+    name="passwordConfirmation"
+    title="Confirm Password"
   >
-    <label
-      class="label"
-    >
-      Confirm Password
-    </label>
-     
-    <input
-      class="input"
+    <forminput-stub
+      aria-invalid="false"
+      aria-required="true"
       name="passwordConfirmation"
       type="password"
+      value=""
     />
-     
-    <span
-      class="error"
+  </formgroup-stub>
+   
+  <formgroup-stub>
+    <basebutton-stub
+      variant="primary"
     >
       
-    </span>
-  </div>
-   
-  <div
-    class="field"
-  >
-    <button
-      class="button"
-      type="submit"
-    >
-      Submit
-    </button>
-  </div>
+      Sign in
+    
+    </basebutton-stub>
+  </formgroup-stub>
    
   <!---->
 </form>

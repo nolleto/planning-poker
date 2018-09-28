@@ -13,8 +13,24 @@ describe('NavHeader component', () => {
       wrapper = shallowComponent()
     })
 
-    it('matches', () => {
-      expect(wrapper.element).toMatchSnapshot()
+    describe('When menu is not expanded', () => {
+      beforeAll(() => {
+        wrapper.setData({ ui: { expanded: false } })
+      })
+
+      it('matches', () => {
+        expect(wrapper.element).toMatchSnapshot()
+      })
+    })
+
+    describe('When menu is expanded', () => {
+      beforeAll(() => {
+        wrapper.setData({ ui: { expanded: true } })
+      })
+
+      it('matches', () => {
+        expect(wrapper.element).toMatchSnapshot()
+      })
     })
   })
 
@@ -31,6 +47,16 @@ describe('NavHeader component', () => {
 
       it('emits "go-home"', () => {
         expect(wrapper.vm.$emit).toHaveBeenCalledWith('go-home')
+      })
+    })
+
+    describe('When clicked in burger menu', () => {
+      beforeEach(() => {
+        wrapper.find('button').trigger('click')
+      })
+
+      it('toggles "ui.expanded"', () => {
+        expect(wrapper.vm.ui.expanded).toBeTruthy()
       })
     })
   })

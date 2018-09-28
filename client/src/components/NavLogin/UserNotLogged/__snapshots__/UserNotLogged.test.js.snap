@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserNotLogged component Snapshots matches 1`] = `
+<div>
+  <a
+    href="#"
+  >
+    Sign In
+  </a>
+   
+  <span>
+    or
+  </span>
+   
+  <a
+    href="#"
+  >
+    Sign Up
+  </a>
+</div>
+`;

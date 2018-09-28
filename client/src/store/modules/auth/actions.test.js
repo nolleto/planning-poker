@@ -1,19 +1,18 @@
-import * as usersServices from '../api/users'
-import * as sessionsServices from '../api/sessions'
-import router from '../routers'
+import * as usersServices from '@/api/users'
+import * as sessionsServices from '@/api/sessions'
+import router from '@/routers'
 import actions from './actions'
+import { TOGGLE_IS_LOADING } from '../common/mutations-types'
 import {
-  TOGGLE_IS_LOADING,
-  SIGN_IN_SUCCESS,
-  SIGN_IN_FAILURE,
-  SIGN_UP_SUCCESS,
-  SIGN_UP_FAILURE,
-  SIGN_OUT_SUCCESS,
-  SIGN_OUT_FAILURE
+  CLEAN_ERRORS,
+  CLEAN_USER,
+  SET_ERRORS,
+  SET_USER
 } from './mutations-types'
 
 describe('actions store', () => {
   describe('signIn', () => {
+    const path = 'signIn'
     const state = {}
     const payload = {
       userOrEmail: 'admin',
@@ -31,7 +30,13 @@ describe('actions store', () => {
       })
 
       it('commits "TOGGLE_IS_LOADING"', () => {
-        expect(commit).toHaveBeenCalledWith(TOGGLE_IS_LOADING)
+        expect(commit).toHaveBeenCalledWith(
+          TOGGLE_IS_LOADING, null, { root: true }
+        )
+      })
+
+      it('commits "CLEAN_ERRORS"', () => {
+        expect(commit).toHaveBeenCalledWith(CLEAN_ERRORS, { path })
       })
 
       it('calls #signIn methods from auth service', () => {
@@ -45,8 +50,8 @@ describe('actions store', () => {
           jest.runAllTimers()
         })
 
-        it('commits "SIGN_IN_SUCCESS"', () => {
-          expect(commit.mock.calls[1][0]).toBe(SIGN_IN_SUCCESS)
+        it('commits "SET_USER"', () => {
+          expect(commit.mock.calls[2][0]).toBe(SET_USER)
         })
 
         it('pushes router with "/"', () => {
@@ -54,7 +59,7 @@ describe('actions store', () => {
         })
 
         it('commits "TOGGLE_IS_LOADING"', () => {
-          expect(commit.mock.calls[2][0]).toBe(TOGGLE_IS_LOADING)
+          expect(commit.mock.calls[3][0]).toBe(TOGGLE_IS_LOADING)
         })
       })
     })
@@ -74,7 +79,13 @@ describe('actions store', () => {
       })
 
       it('commits "TOGGLE_IS_LOADING"', () => {
-        expect(commit).toHaveBeenCalledWith(TOGGLE_IS_LOADING)
+        expect(commit).toHaveBeenCalledWith(
+          TOGGLE_IS_LOADING, null, { root: true }
+        )
+      })
+
+      it('commits "CLEAN_ERRORS"', () => {
+        expect(commit).toHaveBeenCalledWith(CLEAN_ERRORS, { path })
       })
 
       it('calls #signIn methods from auth service', () => {
@@ -88,18 +99,19 @@ describe('actions store', () => {
           jest.runAllTimers()
         })
 
-        it('commits "SIGN_IN_FAILURE"', () => {
-          expect(commit.mock.calls[1][0]).toBe(SIGN_IN_FAILURE)
+        it('commits "SET_ERRORS"', () => {
+          expect(commit.mock.calls[2][0]).toBe(SET_ERRORS)
         })
 
         it('commits "TOGGLE_IS_LOADING"', () => {
-          expect(commit.mock.calls[2][0]).toBe(TOGGLE_IS_LOADING)
+          expect(commit.mock.calls[3][0]).toBe(TOGGLE_IS_LOADING)
         })
       })
     })
   })
 
   describe('signUp', () => {
+    const path = 'signUp'
     const state = {}
     const payload = {
       username: 'admin',
@@ -118,7 +130,13 @@ describe('actions store', () => {
       })
 
       it('commits "TOGGLE_IS_LOADING"', () => {
-        expect(commit).toHaveBeenCalledWith(TOGGLE_IS_LOADING)
+        expect(commit).toHaveBeenCalledWith(
+          TOGGLE_IS_LOADING, null, { root: true }
+        )
+      })
+
+      it('commits "CLEAN_ERRORS"', () => {
+        expect(commit).toHaveBeenCalledWith(CLEAN_ERRORS, { path })
       })
 
       it('calls #signUp methods from auth service', () => {
@@ -130,8 +148,8 @@ describe('actions store', () => {
           jest.runAllTimers()
         })
 
-        it('commits "SIGN_UP_SUCCESS"', () => {
-          expect(commit.mock.calls[1][0]).toBe(SIGN_UP_SUCCESS)
+        it('commits "SET_USER"', () => {
+          expect(commit.mock.calls[2][0]).toBe(SET_USER)
         })
 
         it('pushes router with "/"', () => {
@@ -139,7 +157,7 @@ describe('actions store', () => {
         })
 
         it('commits "TOGGLE_IS_LOADING"', () => {
-          expect(commit.mock.calls[2][0]).toBe(TOGGLE_IS_LOADING)
+          expect(commit.mock.calls[3][0]).toBe(TOGGLE_IS_LOADING)
         })
       })
     })
@@ -159,7 +177,13 @@ describe('actions store', () => {
       })
 
       it('commits "TOGGLE_IS_LOADING"', () => {
-        expect(commit).toHaveBeenCalledWith(TOGGLE_IS_LOADING)
+        expect(commit).toHaveBeenCalledWith(
+          TOGGLE_IS_LOADING, null, { root: true }
+        )
+      })
+
+      it('commits "CLEAN_ERRORS"', () => {
+        expect(commit).toHaveBeenCalledWith(CLEAN_ERRORS, { path })
       })
 
       it('calls #signUp methods from auth service', () => {
@@ -171,18 +195,19 @@ describe('actions store', () => {
           jest.runAllTimers()
         })
 
-        it('commits "SIGN_UP_FAILURE"', () => {
-          expect(commit.mock.calls[1][0]).toBe(SIGN_UP_FAILURE)
+        it('commits "SET_ERRORS"', () => {
+          expect(commit.mock.calls[2][0]).toBe(SET_ERRORS)
         })
 
         it('commits "TOGGLE_IS_LOADING"', () => {
-          expect(commit.mock.calls[2][0]).toBe(TOGGLE_IS_LOADING)
+          expect(commit.mock.calls[3][0]).toBe(TOGGLE_IS_LOADING)
         })
       })
     })
   })
 
   describe('signOut', () => {
+    const path = 'signOut'
     const state = {}
 
     describe('When is successfully', () => {
@@ -196,7 +221,13 @@ describe('actions store', () => {
       })
 
       it('commits "TOGGLE_IS_LOADING"', () => {
-        expect(commit).toHaveBeenCalledWith(TOGGLE_IS_LOADING)
+        expect(commit).toHaveBeenCalledWith(
+          TOGGLE_IS_LOADING, null, { root: true }
+        )
+      })
+
+      it('commits "CLEAN_ERRORS"', () => {
+        expect(commit).toHaveBeenCalledWith(CLEAN_ERRORS, { path })
       })
 
       it('calls #signOut methods from auth service', () => {
@@ -208,8 +239,8 @@ describe('actions store', () => {
           jest.runAllTimers()
         })
 
-        it('commits "SIGN_OUT_SUCCESS"', () => {
-          expect(commit.mock.calls[1][0]).toBe(SIGN_OUT_SUCCESS)
+        it('commits "CLEAN_USER"', () => {
+          expect(commit.mock.calls[2][0]).toBe(CLEAN_USER)
         })
 
         it('pushes router with "/"', () => {
@@ -217,7 +248,7 @@ describe('actions store', () => {
         })
 
         it('commits "TOGGLE_IS_LOADING"', () => {
-          expect(commit.mock.calls[2][0]).toBe(TOGGLE_IS_LOADING)
+          expect(commit.mock.calls[3][0]).toBe(TOGGLE_IS_LOADING)
         })
       })
     })
@@ -237,7 +268,13 @@ describe('actions store', () => {
       })
 
       it('commits "TOGGLE_IS_LOADING"', () => {
-        expect(commit).toHaveBeenCalledWith(TOGGLE_IS_LOADING)
+        expect(commit).toHaveBeenCalledWith(
+          TOGGLE_IS_LOADING, null, { root: true }
+        )
+      })
+
+      it('commits "CLEAN_ERRORS"', () => {
+        expect(commit).toHaveBeenCalledWith(CLEAN_ERRORS, { path })
       })
 
       it('calls #signOut methods from auth service', () => {
@@ -249,12 +286,12 @@ describe('actions store', () => {
           jest.runAllTimers()
         })
 
-        it('commits "SIGN_OUT_FAILURE"', () => {
-          expect(commit.mock.calls[1][0]).toBe(SIGN_OUT_FAILURE)
+        it('commits "SET_ERRORS"', () => {
+          expect(commit.mock.calls[2][0]).toBe(SET_ERRORS)
         })
 
         it('commits "TOGGLE_IS_LOADING"', () => {
-          expect(commit.mock.calls[2][0]).toBe(TOGGLE_IS_LOADING)
+          expect(commit.mock.calls[3][0]).toBe(TOGGLE_IS_LOADING)
         })
       })
     })

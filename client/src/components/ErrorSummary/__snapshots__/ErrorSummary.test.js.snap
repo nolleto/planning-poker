@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorSummary component Snapshots matches 1`] = `
+<div
+  class="alert alertDanger"
+  role="alert"
+/>
+`;

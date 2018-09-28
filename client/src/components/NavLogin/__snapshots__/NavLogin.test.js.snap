@@ -2,35 +2,14 @@
 
 exports[`NavLogin component Snapshots When user is not signed matches 1`] = `
 <div>
-  <div>
-    <a>
-      Sign In
-    </a>
-     
-    <a>
-      Sign Up
-    </a>
-  </div>
+  <usernotlogged-stub />
 </div>
 `;
 
 exports[`NavLogin component Snapshots When user is signed matches 1`] = `
 <div>
-  <div>
-    <span>
-      
-      Hello
-      
-      <b>
-        Lucas Nascimento
-      </b>
-      !
-    
-    </span>
-     
-    <a>
-      Sign out
-    </a>
-  </div>
+  <userlogged-stub
+    username="Lucas Nascimento"
+  />
 </div>
 `;

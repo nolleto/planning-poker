@@ -1,6 +1,8 @@
 import axios from 'axios'
 import httpAdapter from 'axios/lib/adapters/http'
 
+import './src/components/_global'
+
 axios.defaults.host = 'http://localhost'
 axios.defaults.adapter = httpAdapter
 

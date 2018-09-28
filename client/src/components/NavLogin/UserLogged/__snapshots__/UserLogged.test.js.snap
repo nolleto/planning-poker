@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserLogged component Snapshots When is expanded matches 1`] = `
+<div
+  class="dropdown"
+>
+  <a
+    aria-expanded="true"
+    aria-haspopup="true"
+    class="navLink dropdownToggle"
+    id="loginDropdown"
+    role="button"
+  >
+    
+    Hello 
+    <b>
+      Mauricio da Silva
+    </b>
+    !
+  
+  </a>
+   
+  <div
+    aria-labelledby="loginDropdown"
+    class="dropdownMenu dropdownMenuRight show"
+  >
+    <a
+      class="dropdownItem"
+    >
+      
+      Sign out
+    
+    </a>
+  </div>
+</div>
+`;
+
+exports[`UserLogged component Snapshots When is not expanded matches 1`] = `
+<div
+  class="dropdown"
+>
+  <a
+    aria-haspopup="true"
+    class="navLink dropdownToggle"
+    id="loginDropdown"
+    role="button"
+  >
+    
+    Hello 
+    <b>
+      Mauricio da Silva
+    </b>
+    !
+  
+  </a>
+   
+  <div
+    aria-labelledby="loginDropdown"
+    class="dropdownMenu dropdownMenuRight"
+  >
+    <a
+      class="dropdownItem"
+    >
+      
+      Sign out
+    
+    </a>
+  </div>
+</div>
+`;

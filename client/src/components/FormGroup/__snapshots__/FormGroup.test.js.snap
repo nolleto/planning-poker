@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormGroup component Snapshots When passing name and title props matches 1`] = `
+<div
+  class="formGroup"
+>
+  <label
+    for="name"
+  >
+    
+    Name
+  
+  </label>
+   
+</div>
+`;
+
+exports[`FormGroup component Snapshots matches 1`] = `
+<div
+  class="formGroup"
+>
+  <!---->
+   
+</div>
+`;

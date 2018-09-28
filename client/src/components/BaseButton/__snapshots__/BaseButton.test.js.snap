@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseButton component Snapshots When "variant" is "danger" matches 1`] = `
+<button
+  class="btn btnDanger"
+/>
+`;
+
+exports[`BaseButton component Snapshots When "variant" is "dark" matches 1`] = `
+<button
+  class="btn btnDark"
+/>
+`;
+
+exports[`BaseButton component Snapshots When "variant" is "info" matches 1`] = `
+<button
+  class="btn btnInfo"
+/>
+`;
+
+exports[`BaseButton component Snapshots When "variant" is "light" matches 1`] = `
+<button
+  class="btn btnLight"
+/>
+`;
+
+exports[`BaseButton component Snapshots When "variant" is "link" matches 1`] = `
+<button
+  class="btn btnLink"
+/>
+`;
+
+exports[`BaseButton component Snapshots When "variant" is "primary" matches 1`] = `
+<button
+  class="btn btnPrimary"
+/>
+`;
+
+exports[`BaseButton component Snapshots When "variant" is "secondary" matches 1`] = `
+<button
+  class="btn btnSecondary"
+/>
+`;
+
+exports[`BaseButton component Snapshots When "variant" is "success" matches 1`] = `
+<button
+  class="btn btnSuccess"
+/>
+`;
+
+exports[`BaseButton component Snapshots When "variant" is "warning" matches 1`] = `
+<button
+  class="btn btnWarning"
+/>
+`;
+
+exports[`BaseButton component Snapshots When is disabled matches 1`] = `
+<button
+  class="btn"
+  disabled="disabled"
+/>
+`;
+
+exports[`BaseButton component Snapshots matches 1`] = `
+<button
+  class="btn"
+/>
+`;
