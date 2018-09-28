@@ -1,6 +1,6 @@
 import SignUpForm from './index'
 import VeeValidate from 'vee-validate'
-import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 
 const defaultProps = {
   isLoading: false
@@ -12,7 +12,6 @@ const shallowComponent = (opts = { propsData: defaultProps }) => {
   localVue.use(VeeValidate)
 
   return shallowMount(SignUpForm, {
-
     ...opts,
     localVue,
     mixins: [{
